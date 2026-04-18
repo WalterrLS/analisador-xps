@@ -93,8 +93,7 @@
       "2p 3/2": 21.6
     },
     "fonte": "LBL X-Ray Data Booklet"
-  }
-},
+  },
   "NA": {
     "z": 11,
     "nome": "Sódio",
@@ -149,4 +148,4 @@
       "2p 3/2": 135
     },
     "fonte": "LBL X-Ray Data Booklet"
-  }
+}
