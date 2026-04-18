@@ -1,124 +1,97 @@
 {
-    "C": {
-        "adventicio": {
-            "be": 284.8,
-            "orbital": "1s",
-            "info": "Referência universal de calibração para amostras expostas ao ar"
-        },
-        "grafite": {
-            "be": 284.0,
-            "orbital": "1s",
-            "info": "Carbono sp2 puro"
-        }
+  "H": {
+    "z": 1,
+    "nome": "Hidrogênio",
+    "orbitais": {
+      "1s": 13.6
     },
-    "O": {
-        "oxido": {
-            "be": 529.8,
-            "orbital": "1s",
-            "info": "Oxigênio de rede metálica (ex: TiO2, Al2O3)"
-        },
-        "organico": {
-            "be": 532.0,
-            "orbital": "1s",
-            "info": "Oxigênio em ligações C-O ou contaminação de superfície"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "HE": {
+    "z": 2,
+    "nome": "Hélio",
+    "orbitais": {
+      "1s": 24.6
     },
-    "AU": {
-        "metal": {
-            "be": 84.0,
-            "orbital": "4f 7/2",
-            "info": "Padrão primário de calibração de energia do equipamento"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "LI": {
+    "z": 3,
+    "nome": "Lítio",
+    "orbitais": {
+      "1s": 54.7,
+      "2s": 5.4
     },
-    "AG": {
-        "metal": {
-            "be": 368.2,
-            "orbital": "3d 5/2",
-            "info": "Padrão de calibração e teste de resolução do feixe"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "BE": {
+    "z": 4,
+    "nome": "Berílio",
+    "orbitais": {
+      "1s": 111.5,
+      "2s": 9.3
     },
-    "CU": {
-        "metal": {
-            "be": 932.7,
-            "orbital": "2p 3/2",
-            "info": "Cobre metálico puro"
-        },
-        "oxido_ii": {
-            "be": 933.6,
-            "orbital": "2p 3/2",
-            "info": "CuO (Cobre II). Nota: Apresenta satélites intensos em 943 eV"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "B": {
+    "z": 5,
+    "nome": "Boro",
+    "orbitais": {
+      "1s": 188.0,
+      "2s": 14.0,
+      "2p": 8.3
     },
-    "TI": {
-        "metal": {
-            "be": 454.1,
-            "orbital": "2p 3/2",
-            "info": "Titânio metálico"
-        },
-        "oxido": {
-            "be": 458.5,
-            "orbital": "2p 3/2",
-            "info": "TiO2 (Dióxido de Titânio)"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "C": {
+    "z": 6,
+    "nome": "Carbono",
+    "orbitais": {
+      "1s": 284.2,
+      "2s": 16.6,
+      "2p": 11.3
     },
-    "SI": {
-        "metal": {
-            "be": 99.3,
-            "orbital": "2p",
-            "info": "Silício elementar (Si 0)"
-        },
-        "oxido": {
-            "be": 103.3,
-            "orbital": "2p",
-            "info": "SiO2 (Sílica)"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "N": {
+    "z": 7,
+    "nome": "Nitrogênio",
+    "orbitais": {
+      "1s": 409.9,
+      "2s": 37.3,
+      "2p": 26.3
     },
-    "AL": {
-        "metal": {
-            "be": 72.9,
-            "orbital": "2p",
-            "info": "Alumínio metálico"
-        },
-        "oxido": {
-            "be": 74.7,
-            "orbital": "2p",
-            "info": "Al2O3 (Alumina)"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "O": {
+    "z": 8,
+    "nome": "Oxigênio",
+    "orbitais": {
+      "1s": 543.1,
+      "2s": 41.6,
+      "2p": 28.5
     },
-    "FE": {
-        "metal": {
-            "be": 706.7,
-            "orbital": "2p 3/2",
-            "info": "Ferro metálico"
-        },
-        "oxido_iii": {
-            "be": 710.7,
-            "orbital": "2p 3/2",
-            "info": "Fe2O3 (Hematita)"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "F": {
+    "z": 9,
+    "nome": "Flúor",
+    "orbitais": {
+      "1s": 696.7,
+      "2s": 37.9,
+      "2p": 31.1
     },
-    "NI": {
-        "metal": {
-            "be": 852.6,
-            "orbital": "2p 3/2",
-            "info": "Níquel metálico"
-        },
-        "oxido": {
-            "be": 853.7,
-            "orbital": "2p 3/2",
-            "info": "NiO (Óxido de Níquel)"
-        }
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "NE": {
+    "z": 10,
+    "nome": "Neônio",
+    "orbitais": {
+      "1s": 870.2,
+      "2s": 48.5,
+      "2p 1/2": 21.7,
+      "2p 3/2": 21.6
     },
-    "MG": {
-        "metal": {
-            "be": 49.5,
-            "orbital": "2p",
-            "info": "Magnésio metálico puro"
-        },
-        "oxido": {
-            "be": 50.8,
-            "orbital": "2p",
-            "info": "MgO (Óxido de Magnésio)"
-        }
-    }
+    "fonte": "LBL X-Ray Data Booklet"
+  }
 }
