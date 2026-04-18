@@ -94,4 +94,59 @@
     },
     "fonte": "LBL X-Ray Data Booklet"
   }
-}
+},
+  "NA": {
+    "z": 11,
+    "nome": "Sódio",
+    "orbitais": {
+      "1s": 1070.8,
+      "2s": 63.5,
+      "2p 1/2": 30.65,
+      "2p 3/2": 30.81
+    },
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "MG": {
+    "z": 12,
+    "nome": "Magnésio",
+    "orbitais": {
+      "1s": 1303.0,
+      "2s": 88.7,
+      "2p 1/2": 49.78,
+      "2p 3/2": 49.50
+    },
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "AL": {
+    "z": 13,
+    "nome": "Aluminio",
+    "orbitais": {
+      "1s": 1559.6,
+      "2s": 117.8,
+      "2p 1/2": 72.95,
+      "2p 3/2": 72.55
+    },
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "SI": {
+    "z": 14,
+    "nome": "Silício",
+    "orbitais": {
+      "1s": 1839.0,
+      "2s": 149.7,
+      "2p 1/2": 99.82,
+      "2p 3/2": 99.42
+    },
+    "fonte": "LBL X-Ray Data Booklet"
+  },
+  "P": {
+    "z": 15,
+    "nome": "Fósforo",
+    "orbitais": {
+      "1s": 2145.5,
+      "2s": 189,
+      "2p 1/2": 136,
+      "2p 3/2": 135
+    },
+    "fonte": "LBL X-Ray Data Booklet"
+  }
