@@ -108,5 +108,18 @@
             "orbital": "2p 3/2",
             "info": "NiO (Óxido de Níquel)"
         }
+    },
+    ,
+    "MG": {
+        "metal": {
+            "be": 49.5,
+            "orbital": "2p",
+            "info": "Magnésio metálico puro"
+        },
+        "oxido": {
+            "be": 50.8,
+            "orbital": "2p",
+            "info": "MgO (Óxido de Magnésio)"
+        }
     }
 }
