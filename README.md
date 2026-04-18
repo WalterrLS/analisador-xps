@@ -5,7 +5,7 @@ Software em Python para simulação e análise de dados de XPS
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## 📌 Sobre o Projeto
-Este software foi desenvolvido como um projeto pessoal durante a graduação, com foco em **Espectroscopia de Fotoelétrons excitados por Raios-X (XPS)**. O objetivo é facilitar a identificação de estados de oxidação e elementos químicos através da comparação de dados experimentais com referências bibliográficas (NIST/PHI).
+Este software foi desenvolvido como um projeto durante a graduação, com foco em **Espectroscopia de Fotoelétrons excitados por Raios-X (XPS)**. O objetivo é facilitar a identificação de estados de oxidação e elementos químicos através da comparação de dados experimentais com referências bibliográficas (NIST/PHI).
 
 A ferramenta permite simular picos espectroscópicos teóricos e sincronizar um banco de dados dinâmico hospedado em nuvem.
 
