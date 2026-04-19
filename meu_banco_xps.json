@@ -47,11 +47,14 @@
     "z": 6,
     "nome": "Carbono",
     "orbitais": {
-      "1s": 284.2,
-      "2s": 16.6,
-      "2p": 11.3
-    },
-    "fonte": "LBL X-Ray Data Booklet"
+      "1s": {
+        "be": 284.8,
+        "asf": 0.296,
+        "rsf_alt": 0.25,
+        "imfp": 30.5,
+        "fwhm_ref": 0.8,
+        "split": 0.0
+      }
   },
   "N": {
     "z": 7,
