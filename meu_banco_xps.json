@@ -1,48 +1,4 @@
 {
-  "H": {
-    "z": 1,
-    "nome": "Hidrogênio",
-    "orbitais": {
-      "1s": 13.6
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "HE": {
-    "z": 2,
-    "nome": "Hélio",
-    "orbitais": {
-      "1s": 24.6
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "LI": {
-    "z": 3,
-    "nome": "Lítio",
-    "orbitais": {
-      "1s": 54.7,
-      "2s": 5.4
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "BE": {
-    "z": 4,
-    "nome": "Berílio",
-    "orbitais": {
-      "1s": 111.5,
-      "2s": 9.3
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "B": {
-    "z": 5,
-    "nome": "Boro",
-    "orbitais": {
-      "1s": 188.0,
-      "2s": 14.0,
-      "2p": 8.3
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
   "C": {
     "z": 6,
     "nome": "Carbono",
@@ -57,100 +13,26 @@
       }
     }
   },
-  "N": {
-    "z": 7,
-    "nome": "Nitrogênio",
-    "orbitais": {
-      "1s": 409.9,
-      "2s": 37.3,
-      "2p": 26.3
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "O": {
-    "z": 8,
-    "nome": "Oxigênio",
-    "orbitais": {
-      "1s": 543.1,
-      "2s": 41.6,
-      "2p": 28.5
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "F": {
-    "z": 9,
-    "nome": "Flúor",
-    "orbitais": {
-      "1s": 696.7,
-      "2s": 37.9,
-      "2p": 31.1
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "NE": {
-    "z": 10,
-    "nome": "Neônio",
-    "orbitais": {
-      "1s": 870.2,
-      "2s": 48.5,
-      "2p 1/2": 21.7,
-      "2p 3/2": 21.6
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "NA": {
-    "z": 11,
-    "nome": "Sódio",
-    "orbitais": {
-      "1s": 1070.8,
-      "2s": 63.5,
-      "2p 1/2": 30.65,
-      "2p 3/2": 30.81
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "MG": {
-    "z": 12,
-    "nome": "Magnésio",
-    "orbitais": {
-      "1s": 1303.0,
-      "2s": 88.7,
-      "2p 1/2": 49.78,
-      "2p 3/2": 49.50
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "AL": {
-    "z": 13,
-    "nome": "Aluminio",
-    "orbitais": {
-      "1s": 1559.6,
-      "2s": 117.8,
-      "2p 1/2": 72.95,
-      "2p 3/2": 72.55
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
   "SI": {
     "z": 14,
     "nome": "Silício",
     "orbitais": {
-      "1s": 1839.0,
-      "2s": 149.7,
-      "2p 1/2": 99.82,
-      "2p 3/2": 99.42
-    },
-    "fonte": "LBL X-Ray Data Booklet"
-  },
-  "P": {
-    "z": 15,
-    "nome": "Fósforo",
-    "orbitais": {
-      "1s": 2145.5,
-      "2s": 189,
-      "2p 1/2": 136,
-      "2p 3/2": 135
-    },
-    "fonte": "LBL X-Ray Data Booklet"
+      "2p 3/2": {
+        "be": 99.4,
+        "asf": 0.339,
+        "rsf_alt": 0.34,
+        "imfp": 34.2,
+        "fwhm_ref": 0.5,
+        "split": 0.61
+      },
+      "2s": {
+        "be": 150.0,
+        "asf": 0.283,
+        "rsf_alt": 0.28,
+        "imfp": 32.1,
+        "fwhm_ref": 0.9,
+        "split": 0.0
+      }
+    }
   }
 }
