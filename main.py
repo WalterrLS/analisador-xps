@@ -14,13 +14,18 @@ class XPSApp(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("Analisador XPS - v4.5.4")
+        self.title("Simulador de Espectros XPS")
         self.geometry("1100x750")
         ctk.set_appearance_mode("dark")
+        
+        # Tenta carregar o ícone se ele existir
+        try:
+            self.iconbitmap("logo.ico")
+        except:
+            pass
 
         self.dados_elemento_atual = None
 
-        # Garante que o arquivo exista para evitar erro de leitura na abertura
         if not os.path.exists(ARQUIVO_LOCAL):
             with open(ARQUIVO_LOCAL, 'w', encoding='utf-8') as f:
                 json.dump({}, f)
@@ -33,7 +38,7 @@ class XPSApp(ctk.CTk):
         self.sidebar = ctk.CTkFrame(self, width=280, corner_radius=0)
         self.sidebar.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 
-        ctk.CTkLabel(self.sidebar, text="CONTROLE XPS", font=("Arial", 20, "bold")).pack(pady=20)
+        ctk.CTkLabel(self.sidebar, text="Ajustes de Simulação", font=("Arial", 18, "bold")).pack(pady=20)
         
         self.btn_sync = ctk.CTkButton(self.sidebar, text="Sincronizar Nuvem ↻", 
                                       fg_color="#28a745", hover_color="#218838",
@@ -62,10 +67,11 @@ class XPSApp(ctk.CTk):
         self.slider_fwhm.set(1.2)
         self.slider_fwhm.pack(pady=5, padx=20)
 
-        ctk.CTkLabel(self.sidebar, text="Nível de Ruído").pack(pady=(15, 0))
+        # Slider de Ruído (Contagem para Poisson)
+        ctk.CTkLabel(self.sidebar, text="Energia de Passagem (eV)").pack(pady=(15, 0))
         self.label_ruido_val = ctk.CTkLabel(self.sidebar, text="5.0", text_color="#e74c3c", font=("Arial", 12, "bold"))
         self.label_ruido_val.pack()
-        self.slider_ruido = ctk.CTkSlider(self.sidebar, from_=0, to=30, command=self.atualizar_ruido)
+        self.slider_ruido = ctk.CTkSlider(self.sidebar, from_=0.1, to=50, command=self.atualizar_ruido)
         self.slider_ruido.set(5)
         self.slider_ruido.pack(pady=5, padx=20)
 
@@ -153,19 +159,27 @@ class XPSApp(ctk.CTk):
         x = np.linspace(be + 10, be - 10, 400)
         sigma = fwhm / 2.3548
         
+        # 1. Geração do Sinal Puro
         y_teorico_max = (asf * 1000)
         y_puro = y_teorico_max * np.exp(-(x - be)**2 / (2 * sigma**2))
-        y_final = y_puro + np.random.normal(0, self.slider_ruido.get(), size=len(x))
+        
+        # 2. Estatística de Poisson (Shot Noise)
+        # fator_intensidade simula o tempo de contagem (mais alto = menos ruído relativo)
+        fator_intensidade = max(self.slider_ruido.get(), 0.1)
+        y_final = np.random.poisson(np.maximum(y_puro, 0) * fator_intensidade) / fator_intensidade
+        
+        # 3. Tratamento Shirley
         bg = self.calcular_shirley(y_final)
         
         # Desenho do gráfico
         self.ax.fill_between(x, bg, y_final, color='#3498db', alpha=0.3, label="Área")
-        self.ax.scatter(x, y_final, s=2, color='black', alpha=0.6, label="Sinal")
-        self.ax.plot(x, bg, color='#e74c3c', lw=2, label="Shirley")
+        self.ax.scatter(x, y_final, s=2, color='black', alpha=0.6, label="Sinal Simulado")
+        self.ax.plot(x, bg, color='#e74c3c', lw=2, label="Fundo de Shirley")
         
         # Balão identificador
+        y_pico_real = np.max(y_final)
         self.ax.annotate(f"{self.dados_elemento_atual['nome']}\n{be:.2f} eV", 
-                         xy=(be, y_teorico_max), 
+                         xy=(be, y_pico_real), 
                          xytext=(0, 15), 
                          textcoords="offset points",
                          ha='center', va='bottom',
@@ -173,7 +187,7 @@ class XPSApp(ctk.CTk):
                          bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#3498db", alpha=0.9))
 
         self.ax.invert_xaxis()
-        self.ax.set_title("Simulação de Espectro XPS", pad=20, fontsize=14, fontweight='bold')
+        self.ax.set_title("Simulação do Espectro", pad=20, fontsize=14, fontweight='bold')
         self.ax.set_xlabel("Binding Energy (eV)")
         self.ax.set_ylabel("Intensity (counts)")
         self.ax.legend(fontsize='x-small', loc='upper right')
@@ -183,4 +197,3 @@ class XPSApp(ctk.CTk):
 if __name__ == "__main__":
     app = XPSApp()
     app.mainloop()
-            
