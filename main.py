@@ -14,11 +14,10 @@ class XPSApp(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("Simulador de Espectros XPS")
+        self.title("Simulador de Espectros XPS - v1.2")
         self.geometry("1100x750")
         ctk.set_appearance_mode("dark")
         
-        # Tenta carregar o ícone se ele existir
         try:
             self.iconbitmap("logo.ico")
         except:
@@ -48,7 +47,6 @@ class XPSApp(ctk.CTk):
         self.label_status_sync = ctk.CTkLabel(self.sidebar, text="Aguardando...", font=("Arial", 11, "italic"))
         self.label_status_sync.pack(pady=(0, 10))
 
-        # Busca
         self.frame_busca = ctk.CTkFrame(self.sidebar, fg_color="transparent")
         self.frame_busca.pack(pady=10, fill="x", padx=10)
         self.entry_elemento = ctk.CTkEntry(self.frame_busca, placeholder_text="Ex: Si", width=80)
@@ -59,7 +57,6 @@ class XPSApp(ctk.CTk):
         self.combo_orbitais = ctk.CTkComboBox(self.sidebar, values=["..."], command=self.ao_selecionar_orbital)
         self.combo_orbitais.pack(pady=10, fill="x", padx=20)
 
-        # Sliders
         ctk.CTkLabel(self.sidebar, text="Ajuste de FWHM (eV)").pack(pady=(20, 0))
         self.label_fwhm_val = ctk.CTkLabel(self.sidebar, text="1.20", text_color="#3498db", font=("Arial", 12, "bold"))
         self.label_fwhm_val.pack()
@@ -67,8 +64,7 @@ class XPSApp(ctk.CTk):
         self.slider_fwhm.set(1.2)
         self.slider_fwhm.pack(pady=5, padx=20)
 
-        # Slider de Ruído (Contagem para Poisson)
-        ctk.CTkLabel(self.sidebar, text="Energia de Passagem (eV)").pack(pady=(15, 0))
+        ctk.CTkLabel(self.sidebar, text="Energia de Passagem (Ruído)").pack(pady=(15, 0))
         self.label_ruido_val = ctk.CTkLabel(self.sidebar, text="5.0", text_color="#e74c3c", font=("Arial", 12, "bold"))
         self.label_ruido_val.pack()
         self.slider_ruido = ctk.CTkSlider(self.sidebar, from_=0.1, to=50, command=self.atualizar_ruido)
@@ -82,6 +78,21 @@ class XPSApp(ctk.CTk):
         self.fig, self.ax = plt.subplots(figsize=(5, 4), dpi=100)
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.main_frame)
         self.canvas.get_tk_widget().pack(fill="both", expand=True, padx=15, pady=15)
+
+    # --- FUNÇÕES MATEMÁTICAS ---
+    def gaussiana(self, x, be, fwhm):
+        sigma = fwhm / 2.3548
+        return np.exp(-(x - be)**2 / (2 * sigma**2))
+
+    def lorentziana(self, x, be, fwhm):
+        gamma = fwhm / 2.0
+        return (gamma**2) / ((x - be)**2 + gamma**2)
+
+    def pseudo_voigt(self, x, be, fwhm, eta=0.3):
+        """Combinação de Gaussiana e Lorentziana (eta=0 é 100% G, eta=1 é 100% L)"""
+        g = self.gaussiana(x, be, fwhm)
+        l = self.lorentziana(x, be, fwhm)
+        return (1 - eta) * g + eta * l
 
     def atualizar_fwhm(self, valor):
         self.label_fwhm_val.configure(text=f"{valor:.2f}")
@@ -156,15 +167,14 @@ class XPSApp(ctk.CTk):
         asf = self.dados_elemento_atual["asf"]
         fwhm = self.slider_fwhm.get()
         
+        # Eixo X com margem de 10 eV para cada lado
         x = np.linspace(be + 10, be - 10, 400)
-        sigma = fwhm / 2.3548
         
-        # 1. Geração do Sinal Puro
+        # 1. Geração do Sinal Puro usando Pseudo-Voigt (Mix de 30% Lorentziana)
         y_teorico_max = (asf * 1000)
-        y_puro = y_teorico_max * np.exp(-(x - be)**2 / (2 * sigma**2))
+        y_puro = y_teorico_max * self.pseudo_voigt(x, be, fwhm, eta=0.3)
         
         # 2. Estatística de Poisson (Shot Noise)
-        # fator_intensidade simula o tempo de contagem (mais alto = menos ruído relativo)
         fator_intensidade = max(self.slider_ruido.get(), 0.1)
         y_final = np.random.poisson(np.maximum(y_puro, 0) * fator_intensidade) / fator_intensidade
         
@@ -172,22 +182,23 @@ class XPSApp(ctk.CTk):
         bg = self.calcular_shirley(y_final)
         
         # Desenho do gráfico
-        self.ax.fill_between(x, bg, y_final, color='#3498db', alpha=0.3, label="Área")
+        self.ax.fill_between(x, bg, y_final, color='#3498db', alpha=0.3, label="Área de Pico")
         self.ax.scatter(x, y_final, s=2, color='black', alpha=0.6, label="Sinal Simulado")
         self.ax.plot(x, bg, color='#e74c3c', lw=2, label="Fundo de Shirley")
         
-        # Balão identificador
+        # --- ESTÉTICA DO BALÃO (ANNOTATE) ---
         y_pico_real = np.max(y_final)
         self.ax.annotate(f"{self.dados_elemento_atual['nome']}\n{be:.2f} eV", 
                          xy=(be, y_pico_real), 
-                         xytext=(0, 15), 
+                         xytext=(0, 20), 
                          textcoords="offset points",
                          ha='center', va='bottom',
                          fontsize=10, fontweight='bold', color='#2c3e50',
-                         bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#3498db", alpha=0.9))
+                         bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#3498db", alpha=0.9),
+                         arrowprops=dict(arrowstyle="->", connectionstyle="arc3", color="#3498db"))
 
         self.ax.invert_xaxis()
-        self.ax.set_title("Simulação do Espectro", pad=20, fontsize=14, fontweight='bold')
+        self.ax.set_title(f"Simulação: {self.dados_elemento_atual['nome']}", pad=25, fontsize=14, fontweight='bold')
         self.ax.set_xlabel("Binding Energy (eV)")
         self.ax.set_ylabel("Intensity (counts)")
         self.ax.legend(fontsize='x-small', loc='upper right')
