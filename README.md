@@ -8,7 +8,7 @@ Software em Python para simulação de espectros
 
 Este software está sendo desenvolvido como um projeto durante a graduação em Física, com foco em **Espectroscopia de Fotoelétrons excitados por Raios-X (XPS)**. O objetivo é facilitar a identificação de elementos químicos e estados de oxidação através da comparação de dados experimentais com referências bibliográficas (NIST/PHI).
 
-A ferramenta permite simular picos espectroscópicos teóricos, tratar sinais experimentais e sincronizar um banco de dados dinâmico hospedado em nuvem.
+A ferramenta permite simular picos espectroscópicos teóricos e sincronizar um banco de dados dinâmico hospedado em nuvem.
 
 🚀 **Funcionalidades Atuais**
 * **Interface Gráfica (GUI):** Experiência de usuário moderna desenvolvida com `CustomTkinter`.
