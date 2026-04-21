@@ -28,4 +28,4 @@ A ferramenta permite simular picos espectroscópicos teóricos e sincronizar um 
 * **Quantificação Relativa:** Módulo para cálculo automático de **Porcentagem Atômica (%)**.
 * **Física:** Simulação de **Dubletos Spin-Órbita** e picos satélites.
 * **Interface:** Uma nova interface para que o usuário consiga gerar múltiplas simulações.
-* **Melhoria Gráfica:** Implementação de ferramentas para melhor a interação com os gráficos gerados. 
+* **Interatividade:** Implementação de ferramentas do mathplotlib para melhorar a interação com os gráficos gerados. 
