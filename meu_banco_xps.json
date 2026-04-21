@@ -7,14 +7,14 @@
   "O":  { "z": 8, "nome": "Oxigênio", "orbitais": { "1s": { "be": 531.0, "asf": 0.711, "split": 0.0 } } },
   "F":  { "z": 9, "nome": "Flúor", "orbitais": { "1s": { "be": 685.0, "asf": 1.000, "split": 0.0 } } },
   "NE": { "z": 10, "nome": "Neônio", "orbitais": { "1s": { "be": 863.0, "asf": 1.340, "split": 0.0 } } },
-  "NA": { "z": 11, "nome": "Sódio", "orbitais": { "1s": { "be": 1072.0, "asf": 1685.0, "split": 0.0 } } },
+  "NA": { "z": 11, "nome": "Sódio", "orbitais": { "1s": { "be": 1072.0, "asf": 1.685, "split": 0.0 } } },
   "MG": { "z": 12, "nome": "Magnésio", "orbitais": { "2s": { "be": 89.0, "asf": 0.252, "split": 0.0 } } },
   "AL": { "z": 13, "nome": "Alumínio", "orbitais": { "2p": { "be": 73.0, "asf": 0.234, "split": 0.0 } } },
   "SI": { "z": 14, "nome": "Silício", "orbitais": { "2p": { "be": 99.0, "asf": 0.339, "split": 1.0 } } },
   "P":  { "z": 15, "nome": "Fósforo", "orbitais": { "2p": { "be": 130.0, "asf": 0.486, "split": 1.0 } } },
   "S":  { "z": 16, "nome": "Enxofre", "orbitais": { "2p": { "be": 164.0, "asf": 0.666, "split": 1.0 } } },
   "CL": { "z": 17, "nome": "Cloro", "orbitais": { "2p": { "be": 199.0, "asf": 0.891, "split": 2.0 } } },
-  "AR": { "z": 18, "nome": "Argônio", "orbitais": { "2p": { "be": 242.0, "asf": 1155.0, "split": 2.0 } } },
-  "K": { "z": 19, "nome": "Potássio", "orbitais": { "2p": { "be": 294.0, "asf": 1466.0, "split": 3.0 } } },
-  "CA": { "z": 20, "nome": "Cálcio", "orbitais": { "2p": { "be": 347.0, "asf": 0.234, "split": 4.0 } } }
+  "AR": { "z": 18, "nome": "Argônio", "orbitais": { "2p": { "be": 242.0, "asf": 1.155, "split": 2.0 } } },
+  "K": { "z": 19, "nome": "Potássio", "orbitais": { "2p": { "be": 294.0, "asf": 1.466, "split": 3.0 } } },
+  "CA": { "z": 20, "nome": "Cálcio", "orbitais": { "2p": { "be": 347.0, "asf": 1.833, "split": 4.0 } } }
 }
