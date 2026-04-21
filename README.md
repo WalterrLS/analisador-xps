@@ -13,7 +13,7 @@ A ferramenta permite simular picos espectroscópicos teóricos e sincronizar um 
 🚀 **Funcionalidades Atuais**
 * **Interface Gráfica (GUI):** Experiência de usuário moderna desenvolvida com `CustomTkinter`.
 * **Tratamento Físico de Dados:** Implementação do algoritmo iterativo de **Background Shirley** para subtração de fundo inelástico.
-* **Simulação Dinâmica:** Geração de curvas Gaussianas com ajuste em tempo real de FWHM e níveis de ruído estatístico.
+* **Simulação Dinâmica:** Geração de curvas Pseudo-Voigt com ajuste em tempo real de FWHM e níveis de ruído de Poisson.
 * **Sincronização em Nuvem:** Download e atualização automática do banco de dados (`.json`) diretamente do repositório remoto via GitHub.
 * **Padrão Científico:** Gráficos gerados com o eixo X invertido e anotações dinâmicas de picos, seguindo o rigor da espectroscopia.
 
@@ -26,5 +26,4 @@ A ferramenta permite simular picos espectroscópicos teóricos e sincronizar um 
 
 🏗️ **Futuras Atualizações**
 * **Quantificação Relativa:** Módulo para cálculo automático de **Porcentagem Atômica (%)**.
-* **Física Avançada:** Simulação de **Dubletos Spin-Órbita** e picos satélites.
-* **Exportação Científica:** Função para exportar dados tratados em formato `.csv`.
+* **Física:** Simulação de **Dubletos Spin-Órbita** e picos satélites.
