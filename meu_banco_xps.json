@@ -25,5 +25,9 @@
   "FE": { "z": 26, "nome": "Ferro", "orbitais": { "2p": { "be": 707.0, "asf": 2.957, "split": 13.0 } } },
   "CO": { "z": 27, "nome": "Cobalto", "orbitais": { "2p": { "be": 778.0, "asf": 3.590, "split": 15.0 } } },
   "NI": { "z": 28, "nome": "Níquel", "orbitais": { "2p": { "be": 853.0, "asf": 4.044, "split": 17.0 } } },
-  "CU": { "z": 29, "nome": "Cobre", "orbitais": { "2p": { "be": 639.0, "asf": 2.659, "split": 11.0 } } }
+  "CU": { "z": 29, "nome": "Cobre", "orbitais": { "2p": { "be": 933.0, "asf": 5.321, "split": 20.0 } } },
+  "ZN": { "z": 30, "nome": "Zinco", "orbitais": { "2p": { "be": 1022.0, "asf": 3.726, "split": 23.0 } } },
+  "GA": { "z": 31, "nome": "Gálio", "orbitais": { "2p": { "be": 1117.0, "asf": 3.720, "split": 27.0 } } },
+  "GE": { "z": 32, "nome": "Germânio", "orbitais": { "2p": { "be": 1217.0, "asf": 3.457, "split": 31.0 } } },
+  "AS": { "z": 33, "nome": "Arsênio", "orbitais": { "3d": { "be": 42.0, "asf": 0.677, "split": 1.0 } } }
 }
