@@ -29,5 +29,12 @@
   "ZN": { "z": 30, "nome": "Zinco", "orbitais": { "2p 3/2": { "be": 1022.0, "asf": 3.726, "split": 23.0 } } },
   "GA": { "z": 31, "nome": "Gálio", "orbitais": { "2p 3/2": { "be": 1117.0, "asf": 3.720, "split": 27.0 } } },
   "GE": { "z": 32, "nome": "Germânio", "orbitais": { "2p 3/2": { "be": 1217.0, "asf": 3.457, "split": 31.0 } } },
-  "AS": { "z": 33, "nome": "Arsênio", "orbitais": { "3d 5/2": { "be": 42.0, "asf": 0.677, "split": 1.0 } } }
+  "AS": { "z": 33, "nome": "Arsênio", "orbitais": { "3d 5/2": { "be": 42.0, "asf": 0.677, "split": 1.0 } } },
+  "SE": { "z": 34, "nome": "Selênio", "orbitais": { "3d 5/2": { "be": 56.0, "asf": 0.853, "split": 1.0 } } },
+  "BR": { "z": 35, "nome": "Bromo", "orbitais": { "3d 5/2": { "be": 69.0, "asf": 1.053, "split": 1.0 } } },
+  "KR": { "z": 36, "nome": "Criptônio", "orbitais": { "3d 5/2": { "be": 87.0, "asf": 1.287, "split": 1.0 } } },
+  "RB": { "z": 37, "nome": "Rubídio", "orbitais": { "3d 5/2": { "be": 111.0, "asf": 1.542, "split": 2.0 } } },
+  "SR": { "z": 38, "nome": "Estrôncio", "orbitais": { "3d 5/2": { "be": 134.0, "asf": 1.843, "split": 2.0 } } },
+  "Y": { "z": 39, "nome": "Ítrio", "orbitais": { "3d 5/2": { "be": 156.0, "asf": 2.175, "split": 2.0 } } },
+  "ZR": { "z": 40, "nome": "Zinco", "orbitais": { "3d 5/2": { "be": 179.0, "asf": 2.576, "split": 2.0 } } }
 }
