@@ -46,5 +46,15 @@
   "AG": { "z": 47, "nome": "Prata", "orbitais": { "3d 5/2": { "be": 368.0, "asf": 5.987, "split": 6.0 } } },
   "CD": { "z": 48, "nome": "Cádmio", "orbitais": { "3d 5/2": { "be": 405.0, "asf": 3.974, "split": 7.0 } } },
   "IN": { "z": 49, "nome": "Índio", "orbitais": { "3d 5/2": { "be": 444.0, "asf": 4.359, "split": 8.0 } } },
-  "SN": { "z": 50, "nome": "Estanho", "orbitais": { "3d 5/2": { "be": 485.0, "asf": 4.725, "split": 8.0 } } }
+  "SN": { "z": 50, "nome": "Estanho", "orbitais": { "3d 5/2": { "be": 485.0, "asf": 4.725, "split": 8.0 } } },
+  "SB": { "z": 51, "nome": "Antimónio", "orbitais": { "3d 5/2": { "be": 528.0, "asf": 5.176, "split": 9.0 } } },
+  "TE": { "z": 52, "nome": "Telúrio", "orbitais": { "3d 5/2": { "be": 573.0, "asf": 5.705, "split": 10.0 } } },
+  "I": { "z": 53, "nome": "Iodo", "orbitais": { "3d 5/2": { "be": 619.0, "asf": 6.206, "split": 11.0 } } },
+  "XE": { "z": 54, "nome": "Xénon", "orbitais": { "3d 5/2": { "be": 670.0, "asf": 6.640, "split": 13.0 } } },
+  "CS": { "z": 55, "nome": "Césio", "orbitais": { "3d 5/2": { "be": 726.0, "asf": 7.041, "split": 14.0 } } },
+  "BA": { "z": 56, "nome": "Bário", "orbitais": { "3d 5/2": { "be": 781.0, "asf": 7.469, "split": 15.0 } } },
+  "LA": { "z": 57, "nome": "Lântano", "orbitais": { "3d 5/2": { "be": 836.0, "asf": 9.122, "split": 17.0 } } },
+  "CE": { "z": 58, "nome": "Cério", "orbitais": { "3d 5/2": { "be": 884.0, "asf": 8.808, "split": 18.0 } } },
+  "PR": { "z": 59, "nome": "Praseodímio", "orbitais": { "3d 5/2": { "be": 932.0, "asf": 7.627, "split": 20.0 } } },
+  "ND": { "z": 60, "nome": "Neodímio", "orbitais": { "3d 5/2": { "be": 981.0, "asf": 5.671, "split": 22.0 } } }
 }
