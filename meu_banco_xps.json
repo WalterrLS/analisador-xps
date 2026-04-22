@@ -39,5 +39,12 @@
   "ZR": { "z": 40, "nome": "Zircônio", "orbitais": { "3d 5/2": { "be": 179.0, "asf": 2.576, "split": 2.0 } } },
   "NB": { "z": 41, "nome": "Nióbio", "orbitais": { "3d 5/2": { "be": 202.0, "asf": 2.921, "split": 3.0 } } },
   "MO": { "z": 42, "nome": "Molibdênio", "orbitais": { "3d 5/2": { "be": 228.0, "asf": 3.321, "split": 3.0 } } },
-  "TC": { "z": 43, "nome": "Tecnécio", "orbitais": { "3d 5/2": { "be": 253.0, "asf": 3.776, "split": 4.0 } } }
+  "TC": { "z": 43, "nome": "Tecnécio", "orbitais": { "3d 5/2": { "be": 253.0, "asf": 3.776, "split": 4.0 } } },
+  "RU": { "z": 44, "nome": "Rutênio", "orbitais": { "3d 5/2": { "be": 280.0, "asf": 4.273, "split": 4.0 } } },
+  "RH": { "z": 45, "nome": "Ródio", "orbitais": { "3d 5/2": { "be": 307.0, "asf": 4.822, "split": 5.0 } } },
+  "PD": { "z": 46, "nome": "Paládio", "orbitais": { "3d 5/2": { "be": 335.0, "asf": 5.356, "split": 5.0 } } },
+  "AG": { "z": 47, "nome": "Prata", "orbitais": { "3d 5/2": { "be": 368.0, "asf": 5.987, "split": 6.0 } } },
+  "CD": { "z": 48, "nome": "Cádmio", "orbitais": { "3d 5/2": { "be": 405.0, "asf": 3.974, "split": 7.0 } } },
+  "IN": { "z": 49, "nome": "Índio", "orbitais": { "3d 5/2": { "be": 444.0, "asf": 4.359, "split": 8.0 } } },
+  "SN": { "z": 50, "nome": "Estanho", "orbitais": { "3d 5/2": { "be": 485.0, "asf": 4.725, "split": 8.0 } } }
 }
