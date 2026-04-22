@@ -21,5 +21,9 @@
   "TI": { "z": 22, "nome": "Titânio", "orbitais": { "2p": { "be": 454.0, "asf": 2.001, "split": 6.0 } } },
   "V": { "z": 23, "nome": "Vanádio", "orbitais": { "2p": { "be": 512.0, "asf": 1.833, "split": 8.0 } } },
   "CR": { "z": 24, "nome": "Cromo", "orbitais": { "2p": { "be": 574.0, "asf": 2.427, "split": 9.0 } } },
-  "MN": { "z": 25, "nome": "Manganês", "orbitais": { "2p": { "be": 639.0, "asf": 2.659, "split": 11.0 } } }
+  "MN": { "z": 25, "nome": "Manganês", "orbitais": { "2p": { "be": 639.0, "asf": 2.659, "split": 11.0 } } },
+  "FE": { "z": 26, "nome": "Ferro", "orbitais": { "2p": { "be": 707.0, "asf": 2.957, "split": 13.0 } } },
+  "CO": { "z": 27, "nome": "Cobalto", "orbitais": { "2p": { "be": 778.0, "asf": 3.590, "split": 15.0 } } },
+  "NI": { "z": 28, "nome": "Níquel", "orbitais": { "2p": { "be": 853.0, "asf": 4.044, "split": 17.0 } } },
+  "CU": { "z": 29, "nome": "Cobre", "orbitais": { "2p": { "be": 639.0, "asf": 2.659, "split": 11.0 } } }
 }
