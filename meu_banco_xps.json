@@ -56,5 +56,15 @@
   "LA": { "z": 57, "nome": "Lântano", "orbitais": { "3d 5/2": { "be": 836.0, "asf": 9.122, "split": 17.0 } } },
   "CE": { "z": 58, "nome": "Cério", "orbitais": { "3d 5/2": { "be": 884.0, "asf": 8.808, "split": 18.0 } } },
   "PR": { "z": 59, "nome": "Praseodímio", "orbitais": { "3d 5/2": { "be": 932.0, "asf": 7.627, "split": 20.0 } } },
-  "ND": { "z": 60, "nome": "Neodímio", "orbitais": { "3d 5/2": { "be": 981.0, "asf": 5.671, "split": 22.0 } } }
+  "ND": { "z": 60, "nome": "Neodímio", "orbitais": { "3d 5/2": { "be": 981.0, "asf": 5.671, "split": 22.0 } } },
+  "PM": { "z": 61, "nome": "Promécio", "orbitais": { "3d 5/2": { "be": 1034.0, "asf": 4.597, "split": 26.0 } } },
+  "SM": { "z": 62, "nome": "Samário", "orbitais": { "3d5/2": { "be": 1081.0, "asf": 3.611, "split": 27.0 } } },
+  "EU": { "z": 63, "nome": "Európio", "orbitais": { "4d": { "be": 128.0, "asf": 2.488, "split": 0.0 } } },
+  "GD": { "z": 64, "nome": "Gadolínio", "orbitais": { "4d": { "be": 140.0, "asf": 2.484, "split": 0.0 } } },
+  "TB": { "z": 65, "nome": "Térbio", "orbitais": { "4d": { "be": 146.0, "asf": 2.477, "split": 0.0 } } },
+  "DY": { "z": 66, "nome": "Disprósio", "orbitais": { "4d": { "be": 152.0, "asf": 2.474, "split": 0.0 } } },
+  "HO": { "z": 67, "nome": "Hólmio", "orbitais": { "4d": { "be": 160.0, "asf": 2.469, "split": 0.0 } } },
+  "ER": { "z": 68, "nome": "Érbio", "orbitais": { "4d": { "be": 167.0, "asf": 2.463, "split": 0.0 } } },
+  "TM": { "z": 69, "nome": "Túlio", "orbitais": { "4d": { "be": 175.0, "asf": 2.454, "split": 0.0 } } },
+  "YB": { "z": 70, "nome": "Itérbio", "orbitais": { "4d": { "be": 182.0, "asf": 2.451, "split": 0.0 } } }
 }
