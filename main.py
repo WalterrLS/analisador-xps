@@ -6,45 +6,45 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# --- CONFIGURAÇÕES ---
-URL_GITHUB = "https://raw.githubusercontent.com/WalterrLS/analisador-xps/refs/heads/main/meu_banco_xps.json"
-ARQUIVO_LOCAL = "meu_banco_xps.json"
+# --- CONFIGURAÇÕES ---  # AQUI É DE ONDE O SOFTWARE VAI BUSCAR OS DADOS DE ENERGIA DE VÍNCULO E ASF PARA CADA ORBITAL
+URL_GITHUB = "https://raw.githubusercontent.com/WalterrLS/analisador-xps/refs/heads/main/meu_banco_xps.json" # AQUI É O LINK DO ARQUIVO JSON NO GITHUB, QUE CONTÉM OS DADOS DE ENERGIA DE VÍNCULO E ASF PARA CADA ORBITAL
+ARQUIVO_LOCAL = "meu_banco_xps.json" # AQUI É O NOME DO ARQUIVO LOCAL ONDE OS DADOS VÃO SER SALVOS APÓS A SINCRONIZAÇÃO COM A NUVEM. SE O ARQUIVO NÃO EXISTIR, ELE VAI SER CRIADO VAZIO NA PRIMEIRA EXECUÇÃO PARA EVITAR ERROS
 
-class XPSApp(ctk.CTk):
-    def __init__(self):
-        super().__init__()
-
-        self.title("Simulador de Espectros XPS - v1.2")
-        self.geometry("1100x750")
-        ctk.set_appearance_mode("dark")
+class XPSApp(ctk.CTk):  # AQUI É A CLASSE PRINCIPAL DO SOFTWARE, QUE HERDA DE CTK.CTK PARA CRIAR A JANELA PRINCIPAL
+    def __init__(self): # O MÉTODO __INIT__ É O CONSTRUTOR DA CLASSE, ONDE SÃO INICIALIZADAS AS CONFIGURAÇÕES INICIAIS DA JANELA E OS ELEMENTOS GRÁFICOS
+        super().__init__() # AQUI É CHAMADO O CONSTRUTOR DA CLASSE PAI (CTK.CTK) PARA INICIALIZAR A JANELA ANTES DE CONFIGURAR OS ELEMENTOS GRÁFICOS
+        # AQUI SÃO AS CONFIGURAÇÕES INICIAIS DA JANELA
+        self.title("Simulador de Espectros XPS - v1.2") # AQUI É O TÍTULO DA JANELA
+        self.geometry("1100x750") # AQUI É O TAMANHO INICIAL DA JANELA (LARGURA x ALTURA)
+        ctk.set_appearance_mode("dark") # MODO ESCURO
         
-        try:
-            self.iconbitmap("logo.ico")
-        except:
-            pass
+        try: # AQUI É TENTADO DEFINIR O ÍCONE DA JANELA, MAS SE O ARQUIVO "logo.ico" NÃO FOR ENCONTRADO, O PROGRAMA VAI RODAR NORMALMENTE SEM O ÍCONE
+            self.iconbitmap("logo.ico") 
+        except: 
+            pass    
 
-        self.dados_elemento_atual = None
+        self.dados_elemento_atual = None   # VARIÁVEL PARA ARMAZENAR OS DADOS DO ORBITAL SELECIONADO
 
-        if not os.path.exists(ARQUIVO_LOCAL):
-            with open(ARQUIVO_LOCAL, 'w', encoding='utf-8') as f:
-                json.dump({}, f)
+        if not os.path.exists(ARQUIVO_LOCAL):  # SE O ARQUIVO LOCAL NÃO EXISTIR, CRIA UM VAZIO PARA EVITAR ERROS
+            with open(ARQUIVO_LOCAL, 'w', encoding='utf-8') as f: 
+                json.dump({}, f)  
 
-        # Layout
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_rowconfigure(0, weight=1)
+        # LAYOUT DE GRID PARA ARRUMAR AS FRAMES
+        self.grid_columnconfigure(1, weight=1) # AQUI É CONFIGURADO O GRID PARA QUE A COLUNA 1 (ONDE FICA O GRÁFICO) SE EXPANDA PARA PREENCHER O ESPAÇO DISPONÍVEL
+        self.grid_rowconfigure(0, weight=1) # AQUI É CONFIGURADO O GRID PARA QUE A LINHA 0 SE EXPANDA PARA PREENCHER O ESPAÇO DISPONÍVEL
 
-        # --- SIDEBAR ---
-        self.sidebar = ctk.CTkFrame(self, width=280, corner_radius=0)
-        self.sidebar.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+        # SIDEBAR
+        self.sidebar = ctk.CTkFrame(self, width=280, corner_radius=0) # AQUI É A CONFIGURAÇÃO DA SIDEBAR (LARGURA E CANTO ARREDONDADO)
+        self.sidebar.grid(row=0, column=0, sticky="nsew", padx=10, pady=10) # AQUI É ONDE A SIDEBAR VAI FICAR (LINHA 0, COLUNA 0) E O "STICKY" FAZ COM QUE ELA SE EXPANDA PARA PREENCHER O ESPAÇO DISPONÍVEL
 
-        ctk.CTkLabel(self.sidebar, text="Ajustes de Simulação", font=("Arial", 18, "bold")).pack(pady=20)
+        ctk.CTkLabel(self.sidebar, text="Ajustes de Simulação", font=("Arial", 18, "bold")).pack(pady=20) # AQUI É O TÍTULO DA SIDEBAR, COM UM ESPAÇO ACIMA E ABAIXO DE 20 PIXELS
         
-        self.btn_sync = ctk.CTkButton(self.sidebar, text="Sincronizar Nuvem ↻", 
-                                      fg_color="#28a745", hover_color="#218838",
-                                      command=self.sincronizar_banco)
-        self.btn_sync.pack(pady=(10, 5), padx=20)
+        self.btn_sync = ctk.CTkButton(self.sidebar, text="Sincronizar Nuvem ↻",  # AQUI É O BOTÃO DE SINCRONIZAÇÃO COM A NUVEM, COM UM TEXTO E UM SÍMBOLO DE RECICLAGEM
+                                      fg_color="#28a745", hover_color="#218838", # AQUI SÃO AS CORES DO BOTÃO (COR DE FUNDO E COR DE HOVER)
+                                      command=self.sincronizar_banco) # AQUI É A FUNÇÃO QUE VAI SER CHAMADA QUANDO O BOTÃO FOR CLICADO (SINCRONIZAR O BANCO DE DADOS COM A NUVEM)
+        self.btn_sync.pack(pady=(10, 5), padx=20) # AQUI É ONDE O BOTÃO VAI FICAR, COM UM ESPAÇO ACIMA DE 10 PIXELS E ABAIXO DE 5 PIXELS, E UM ESPAÇO LATERAL DE 20 PIXELS
         
-        self.label_status_sync = ctk.CTkLabel(self.sidebar, text="Aguardando...", font=("Arial", 11, "italic"))
+        self.label_status_sync = ctk.CTkLabel(self.sidebar, text="Aguardando...", font=("Arial", 11, "italic")) # AQUI É O RÓTULO QUE VAI MOSTRAR O STATUS DA SINCRONIZAÇÃO, COM UM TEXTO INICIAL DE "AGUARDANDO..." E UMA FONTE ITÁLICA
         self.label_status_sync.pack(pady=(0, 10))
 
         self.frame_busca = ctk.CTkFrame(self.sidebar, fg_color="transparent")
@@ -57,14 +57,14 @@ class XPSApp(ctk.CTk):
         self.combo_orbitais = ctk.CTkComboBox(self.sidebar, values=["..."], command=self.ao_selecionar_orbital)
         self.combo_orbitais.pack(pady=10, fill="x", padx=20)
 
-        ctk.CTkLabel(self.sidebar, text="Ajuste de FWHM (eV)").pack(pady=(20, 0))
+        ctk.CTkLabel(self.sidebar, text="Resolução de Energia (eV)").pack(pady=(20, 0))
         self.label_fwhm_val = ctk.CTkLabel(self.sidebar, text="1.20", text_color="#3498db", font=("Arial", 12, "bold"))
         self.label_fwhm_val.pack()
         self.slider_fwhm = ctk.CTkSlider(self.sidebar, from_=0.1, to=4.0, command=self.atualizar_fwhm)
         self.slider_fwhm.set(1.2)
         self.slider_fwhm.pack(pady=5, padx=20)
 
-        ctk.CTkLabel(self.sidebar, text="Energia de Passagem (Ruído)").pack(pady=(15, 0))
+        ctk.CTkLabel(self.sidebar, text="Qualidade do Sinal(SNR)").pack(pady=(15, 0))
         self.label_ruido_val = ctk.CTkLabel(self.sidebar, text="5.0", text_color="#e74c3c", font=("Arial", 12, "bold"))
         self.label_ruido_val.pack()
         self.slider_ruido = ctk.CTkSlider(self.sidebar, from_=0.1, to=50, command=self.atualizar_ruido)
@@ -79,30 +79,34 @@ class XPSApp(ctk.CTk):
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.main_frame)
         self.canvas.get_tk_widget().pack(fill="both", expand=True, padx=15, pady=15)
 
-    # --- FUNÇÕES MATEMÁTICAS ---
-    def gaussiana(self, x, be, fwhm):
+# --- FUNÇÕES MATEMÁTICAS ---
+    def pseudo_voigt(self, x, be, fwhm, eta=0.3): # AQUI É A FUNÇÃO QUE CALCULA O PERFIL PSEUDO-VOIGT, QUE É UMA COMBINAÇÃO LINEAR ENTRE UMA GAUSSIANA E UMA LORENTZIANA, CONTROLADA PELO PARÂMETRO ETA. ESSA FUNÇÃO É USADA PARA GERAR O SINAL TEÓRICO PURO DO ESPECTRO XPS, ANTES DE APLICAR O RUÍDO DE POISSON E O TRATAMENTO DE FUNDO DE SHIRLEY.
+        """
+        Calcula o perfil Pseudo-Voigt diretamente.
+        eta=0 é 100% Gaussiana, eta=1 é 100% Lorentziana.
+        """
+        # Parâmetros de largura
         sigma = fwhm / 2.3548
-        return np.exp(-(x - be)**2 / (2 * sigma**2))
-
-    def lorentziana(self, x, be, fwhm):
         gamma = fwhm / 2.0
-        return (gamma**2) / ((x - be)**2 + gamma**2)
-
-    def pseudo_voigt(self, x, be, fwhm, eta=0.3):
-        """Combinação de Gaussiana e Lorentziana (eta=0 é 100% G, eta=1 é 100% L)"""
-        g = self.gaussiana(x, be, fwhm)
-        l = self.lorentziana(x, be, fwhm)
+        
+        # Cálculo da Gaussiana
+        g = np.exp(-(x - be)**2 / (2 * sigma**2))
+        
+        # Cálculo da Lorentziana
+        l = (gamma**2) / ((x - be)**2 + gamma**2)
+        
+        # Retorno da combinação linear
         return (1 - eta) * g + eta * l
 
-    def atualizar_fwhm(self, valor):
+    def atualizar_fwhm(self, valor): #Slider de resolução de energia (FWHM)
         self.label_fwhm_val.configure(text=f"{valor:.2f}")
         self.replotar()
 
-    def atualizar_ruido(self, valor):
+    def atualizar_ruido(self, valor): #Slider de qualidade do sinal (SNR)
         self.label_ruido_val.configure(text=f"{valor:.1f}")
         self.replotar()
 
-    def sincronizar_banco(self):
+    def sincronizar_banco(self): #Botão para sincronizar o banco de dados com a nuvem, baixando o arquivo JSON do GitHub e salvando localmente
         self.label_status_sync.configure(text="Sincronizando...", text_color="yellow")
         self.update_idletasks()
         try:
@@ -116,7 +120,7 @@ class XPSApp(ctk.CTk):
         except:
             self.label_status_sync.configure(text="✖ Falha na internet", text_color="#dc3545")
 
-    def carregar_dados(self):
+    def carregar_dados(self): #Função para carregar os dados do orbital selecionado e atualizar o combo box de orbitais disponíveis para o elemento digitado
         elem = self.entry_elemento.get().strip().upper()
         try:
             with open(ARQUIVO_LOCAL, 'r', encoding='utf-8') as f:
@@ -131,18 +135,19 @@ class XPSApp(ctk.CTk):
         except:
             self.label_status_sync.configure(text="Erro ao ler arquivo", text_color="red")
 
-    def ao_selecionar_orbital(self, orbital_escolhido):
+    def ao_selecionar_orbital(self, orbital_escolhido): #Função para carregar os dados do orbital selecionado e atualizar o gráfico
         elem = self.entry_elemento.get().strip().upper()
         try:
             with open(ARQUIVO_LOCAL, 'r', encoding='utf-8') as f:
                 banco = json.load(f)
                 self.dados_elemento_atual = banco[elem]["orbitais"][orbital_escolhido]
-                self.dados_elemento_atual["nome"] = f"{elem} {orbital_escolhido}"
+                nome_completo = banco[elem]["nome"]
+                self.dados_elemento_atual["nome"] = f"{nome_completo} {orbital_escolhido}"
             self.replotar()
         except:
             pass
 
-    def calcular_shirley(self, y):
+    def calcular_shirley(self, y): #Função para calcular o fundo de Shirley a partir do espectro simulado, usando um método iterativo para ajustar o fundo com base na área total entre o espectro e o fundo
         y = np.array(y)
         bg = np.linspace(y[0], y[-1], len(y))
         for _ in range(3):
@@ -155,7 +160,7 @@ class XPSApp(ctk.CTk):
             bg = new_bg
         return bg
 
-    def replotar(self):
+    def replotar(self): #Função para replotar o gráfico com base nos dados do orbital atual, aplicando o perfil Pseudo-Voigt, a estatística de Poisson e o tratamento de fundo de Shirley, além de atualizar a estética do gráfico
         if not self.dados_elemento_atual:
             return
         
