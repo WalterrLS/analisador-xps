@@ -76,5 +76,10 @@
   "IR": { "z": 77, "nome": "Irídio", "orbitais": { "4f": { "be": 61.0, "asf": 5.021, "split": 3.0 } } },
   "PT": { "z": 78, "nome": "Platina", "orbitais": { "4f": { "be": 71.0, "asf": 5.575, "split": 3.0 } } },
   "AU": { "z": 79, "nome": "Ouro", "orbitais": { "4f": { "be": 84.0, "asf": 6.250, "split": 4.0 } } },
-  "HG": { "z": 80, "nome": "Mercúrio", "orbitais": { "4f": { "be": 101.0, "asf": 6.915, "split": 4.0 } } }
+  "HG": { "z": 80, "nome": "Mercúrio", "orbitais": { "4f": { "be": 101.0, "asf": 6.915, "split": 4.0 } } },
+  "TL": { "z": 81, "nome": "Tálio", "orbitais": { "4f": { "be": 118.0, "asf": 7.691, "split": 4.0 } } },
+  "PB": { "z": 82, "nome": "Chumbo", "orbitais": { "4f": { "be": 137.0, "asf": 8.329, "split": 5.0 } } },
+  "BI": { "z": 83, "nome": "Bismuto", "orbitais": { "4f": { "be": 157.0, "asf": 9.140, "split": 5.0 } } },
+  "TH": { "z": 90, "nome": "Tório", "orbitais": { "4f7/2": { "be": 333.0, "asf": 9.089, "split": 9.0 } } },
+  "U": { "z": 92, "nome": "Urânio", "orbitais": { "4f7/2": { "be": 377.0, "asf": 10.315, "split": 11.0 } } }
 }
