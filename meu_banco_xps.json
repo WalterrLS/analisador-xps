@@ -66,5 +66,15 @@
   "HO": { "z": 67, "nome": "Hólmio", "orbitais": { "4d": { "be": 160.0, "asf": 2.469, "split": 0.0 } } },
   "ER": { "z": 68, "nome": "Érbio", "orbitais": { "4d": { "be": 167.0, "asf": 2.463, "split": 0.0 } } },
   "TM": { "z": 69, "nome": "Túlio", "orbitais": { "4d": { "be": 175.0, "asf": 2.454, "split": 0.0 } } },
-  "YB": { "z": 70, "nome": "Itérbio", "orbitais": { "4d": { "be": 182.0, "asf": 2.451, "split": 0.0 } } }
+  "YB": { "z": 70, "nome": "Itérbio", "orbitais": { "4d": { "be": 182.0, "asf": 2.451, "split": 0.0 } } },
+  "LU": { "z": 71, "nome": "Lutécio", "orbitais": { "4d": { "be": 7.0, "asf": 2.441, "split": 2.0 } } },
+  "HF": { "z": 72, "nome": "Háfnio", "orbitais": { "4f": { "be": 14.0, "asf": 2.639, "split": 2.0 } } },
+  "TA": { "z": 73, "nome": "Tântalo", "orbitais": { "4f": { "be": 22.0, "asf": 3.082, "split": 1.9 } } },
+  "W": { "z": 74, "nome": "Tungstênio", "orbitais": { "4f": { "be": 31.0, "asf": 3.523, "split": 2.0 } } },
+  "RE": { "z": 75, "nome": "Rênio", "orbitais": { "4f": { "be": 40.0, "asf": 3.961, "split": 2.0 } } },
+  "OS": { "z": 76, "nome": "Ósmio", "orbitais": { "4f": { "be": 51.0, "asf": 4.461, "split": 3.0 } } },
+  "IR": { "z": 77, "nome": "Irídio", "orbitais": { "4f": { "be": 61.0, "asf": 5.021, "split": 3.0 } } },
+  "PT": { "z": 78, "nome": "Platina", "orbitais": { "4f": { "be": 71.0, "asf": 5.575, "split": 3.0 } } },
+  "AU": { "z": 79, "nome": "Ouro", "orbitais": { "4f": { "be": 84.0, "asf": 6.250, "split": 4.0 } } },
+  "HG": { "z": 80, "nome": "Mercúrio", "orbitais": { "4f": { "be": 101.0, "asf": 6.915, "split": 4.0 } } }
 }
