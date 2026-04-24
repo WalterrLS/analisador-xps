@@ -214,7 +214,7 @@ class XPSApp(ctk.CTk):
         
         # Anotação no Pico Principal
         y_max = np.max(y_final)
-        label_text = f"{self.dados_elemento_atual['nome_simbolo']} {orbital_nome}{suffix_principal}\n{be_principal:.2f} eV"
+        label_text = f"{self.dados_elemento_atual['nome_simbolo']} {orbital_nome}\n{be_principal:.2f} eV"
         
         self.ax.annotate(label_text, 
                          xy=(be_principal, (asf * 1000)), # Aponta para o topo teórico do principal
